@@ -1,7 +1,7 @@
 # from crypt import methods
-from operator import methodcaller
+# from operator import methodcaller
 import pickle
-from winreg import REG_WHOLE_HIVE_VOLATILE
+# from winreg import REG_WHOLE_HIVE_VOLATILE
 from flask import Flask,render_template,request
 app=Flask(__name__)
 model=pickle.load(open('model.pkl','rb'))

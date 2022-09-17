@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>House Price Predictor</title>
+    <style>
+		body{
+			background:url(https://th.bing.com/th/id/OIP.SEK5BqLJ5yl8H9u3XUIvVwHaFj?pid=ImgDet&rs=1);
+			background-size: cover;
+			/*background-position: center;*/
+		}
+		table{
+			/*border: 1px solid black;*/
+		  text-align: center;
+		  width:900px;
+		  height: 270px;
+		  /*padding-left: 100px;*/
+		}
+		.data{
+			font-family: Lato;
+			font-size: 22px;
+		}
+        .footer{
+	
+    /*background: #d7d2d35e;*/
+  padding-top: 40px;
+  padding-right: 30px;
+  padding-left: 30px;
+  font-family: Lato;
+  text-align: center;
+
+}
+	</style>
+</head>
+<body>
+    <div class="data" align="center">
+        <h1>Predict the Price of House </h1>
+        <form method="post" action="{{url_for('predict')}}">
+        <table>
+            <tr>
+                <td colspan="2"><label for="area">Area:</label>
+                <input id="area" type="number" name="area1" placeholder="area" required>
+            </label></td>
+                <td>Bedrooms:
+            <select name="bedroom">
+                <option>0</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+            </select>
+                </td>
+            </tr>
+        
+            <tr>
+                <td>Bathrooms:
+            <select name="bathroom">
+                <option>0</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                
+            </select></td>
+                <td>Furnishing Status:
+            <select name="furnish">
+                <option>furnished</option>
+                <option>semi-furnished</option>
+                <option>unfurnished</option>
+            </select></td>
+                <td>Parking:
+            <select name="parking">
+                <option>0</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                
+            </select></td>
+            </tr>
+            <tr>
+                <td><label>Mainroad:
+                <label>Yes
+                <input type="radio" name="mainroad" value="1" required>
+                </label>
+                <label>No
+                <input type="radio" name="mainroad" value="0" required>
+            </label></td>
+                <td><label> Basement:
+                <label for="basement">Yes
+                <input id="yes" type="radio" name="basement" value="1" required>
+                </label>
+                <label>No
+                <input id="no" type="radio" name="basement" value="0" required>
+            </label>
+            </label></td>
+                <td><label> Guest Room:
+                <label>Yes
+                <input id="yes" type="radio" name="guestroom" value="1" required>
+                </label>
+                <label>No
+                <input id="no" type="radio" name="guestroom" value="0" required>
+            </label>
+            </label></td>
+            </tr>
+            <tr>
+                <td><label> Hotwaterheating:
+                <label for="basement">Yes
+                <input id="yes" type="radio" name="hotwater" value="1" required>
+                </label>
+                <label>No
+                <input id="no" type="radio" name="hotwater" value="0" required>
+            </label>
+            </label></td>
+                <td><label>Airconditioning:
+                <label for="basement">Yes
+                <input id="yes" type="radio" name="aircondition" value="1" required>
+                </label>
+                <label>No
+                <input id="no" type="radio" name="aircondition" value="0" required>
+            </label>
+            </label></td>
+                <td>stories:
+            <select name="stories">
+                <option>0</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+            </select></td>
+            </tr>
+        <tr>
+            <th colspan="3">Check Price <button type="submit">Predict</button></th>
+        </tr>
+            
+        </table>
+        </form>
+        <h3><br>{{predict_text}}</h3>
+        </div>
+
+        <div class="footer">
+            <div class="row">
+              <div class="footer">
+              <span> Created By <a href="#">Vishal Yadav </a><span>&copy</span> 2022 All rights reserved.</span>
+          
+             </div>
+            </div>
+          </div>
+</body>
+</html>

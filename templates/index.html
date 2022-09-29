@@ -3,6 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
+    <!-- <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css"> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <title>House Price Predictor</title>
     <style>
@@ -18,6 +23,10 @@
 		  height: 270px;
 		  /*padding-left: 100px;*/
 		}
+        label{
+            font-weight: 22 ;
+
+        }
 		.data{
 			font-family: Lato;
 			font-size: 22px;
@@ -32,18 +41,36 @@
   text-align: center;
 
 }
+.section_space{
+    padding: 12px;
+}
+.pink1{
+            
+            text-align: auto;
+            /*border:1px solid purple;*/
+        }
+.form{
+    padding-left: 5%;
+    padding-right: 5%;
+    /*font-family: lato;*/
+}
+
 	</style>
 </head>
 <body>
     <div class="data" align="center">
         <h1>Predict the Price of House </h1>
         <form method="post" action="{{url_for('predict')}}">
-        <table>
-            <tr>
-                <td colspan="2"><label for="area">Area:</label>
-                <input id="area" type="number" name="area1" placeholder="area" required>
-            </label></td>
-                <td>Bedrooms:
+            <div class="section_space"></div>
+                <div class="form">
+                <div class="row">
+                  <div class=" col-md-6 col-sm-6 pink1">
+                        <label for="area">Area:</label>
+                            <input id="area" type="number" name="area1" placeholder="area in sq" required>
+                        </label>
+                    </div>
+                  <div class=" col-md-6 col-sm-6 pink">
+                         Bedrooms:
             <select name="bedroom">
                 <option>0</option>
                 <option>1</option>
@@ -54,89 +81,110 @@
                 <option>6</option>
                 <option>7</option>
             </select>
-                </td>
-            </tr>
-        
-            <tr>
-                <td>Bathrooms:
+                    </div>
+                </div>
+                <div class="section_space"></div>
+            <div class="row">
+                  <div class=" col-md-4 col-sm-4 pink1">
+                        Bathrooms:
             <select name="bathroom">
                 <option>0</option>
                 <option>1</option>
                 <option>2</option>
                 <option>3</option>
                 
-            </select></td>
-                <td>Furnishing Status:
+            </select>
+                    </div>
+                  <div class=" col-md-4 col-sm-4 pink">
+                        Furnishing Status:
             <select name="furnish">
                 <option>furnished</option>
                 <option>semi-furnished</option>
                 <option>unfurnished</option>
-            </select></td>
-                <td>Parking:
+            </select> 
+                    </div>
+                    <div class=" col-md-4 col-sm-4 pink">
+                         Parking:
             <select name="parking">
                 <option>0</option>
                 <option>1</option>
                 <option>2</option>
                 <option>3</option>
                 
-            </select></td>
-            </tr>
-            <tr>
-                <td><label>Mainroad:
+            </select>
+                    </div>
+                </div>
+                <div class="section_space"></div>
+                 <div class="row">
+                  <div class=" col-md-4 col-sm-4 pink1">
+                        <label>Mainroad:
                 <label>Yes
                 <input type="radio" name="mainroad" value="1" required>
                 </label>
                 <label>No
                 <input type="radio" name="mainroad" value="0" required>
-            </label></td>
-                <td><label> Basement:
+            </label>
+                    </div>
+                  <div class=" col-md-4 col-sm-4 pink">
+                         Basement:
                 <label for="basement">Yes
                 <input id="yes" type="radio" name="basement" value="1" required>
                 </label>
                 <label>No
                 <input id="no" type="radio" name="basement" value="0" required>
             </label>
-            </label></td>
-                <td><label> Guest Room:
+            </label>
+                    </div>
+                    <div class=" col-md-4 col-sm-4 pink">
+                         Guest Room:
                 <label>Yes
                 <input id="yes" type="radio" name="guestroom" value="1" required>
                 </label>
                 <label>No
                 <input id="no" type="radio" name="guestroom" value="0" required>
             </label>
-            </label></td>
-            </tr>
-            <tr>
-                <td><label> Hotwaterheating:
+            </label>
+                    </div>
+                </div>
+                <div class="section_space"></div>
+                 <div class="row">
+                  <div class=" col-md-4 col-sm-4 pink1">
+                        <label> Hotwaterheating:
                 <label for="basement">Yes
                 <input id="yes" type="radio" name="hotwater" value="1" required>
                 </label>
                 <label>No
                 <input id="no" type="radio" name="hotwater" value="0" required>
             </label>
-            </label></td>
-                <td><label>Airconditioning:
+            </label>
+                    </div>
+                  <div class=" col-md-4 col-sm-4 pink">
+                        <label>Airconditioning:
                 <label for="basement">Yes
                 <input id="yes" type="radio" name="aircondition" value="1" required>
                 </label>
                 <label>No
                 <input id="no" type="radio" name="aircondition" value="0" required>
             </label>
-            </label></td>
-                <td>stories:
+            </label>
+                    </div>
+                    <div class=" col-md-4 col-sm-4 pink">
+                         stories:
             <select name="stories">
                 <option>0</option>
                 <option>1</option>
                 <option>2</option>
                 <option>3</option>
                 <option>4</option>
-            </select></td>
-            </tr>
-        <tr>
-            <th colspan="3">Check Price <button type="submit">Predict</button></th>
-        </tr>
-            
-        </table>
+            </select>
+                    </div>
+                </div>
+                <div class="section_space"></div>
+               <div class="row">
+        <div class="col-lg-12">
+            Check Price <button type="submit">Predict</button></div>
+    </div>
+             </div>   
         </form>
         <h3><br>{{predict_text}}</h3>
         </div>
@@ -144,10 +192,14 @@
         <div class="footer">
             <div class="row">
               <div class="footer">
-              <span> Created By <a href="#">Vishal Yadav </a><span>&copy</span> 2022 All rights reserved.</span>
+              <span> Created By <a href="https:\\vishalydv.netlify.app">Vishal Yadav </a><span>&copy</span> 2022 All rights reserved.</span>
           
              </div>
             </div>
           </div>
+
+          <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<!-- LINK TO ADD jquerry in the project for working javascripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </body>
 </html>
